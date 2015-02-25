@@ -3,7 +3,7 @@
 #include <utility>
 #include <cxxtest/TestSuite.h>
 #include "fixtures_di.hpp"
-#include "../../../include/lib/lib.hpp"
+#include <lib.hpp>
 
 using namespace lib;
 
