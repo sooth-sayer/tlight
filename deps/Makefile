@@ -1,6 +1,6 @@
 PWD = $(shell pwd)
 
-test_deps: curlcpp cxxtest
+all: libevent
 
 cxxtest:
 	@tar -xf cxxtest.tar.gz
@@ -20,6 +20,6 @@ libevent:
 	./configure --prefix=$(PWD)/install LDFLAGS=-fPIC &&\
 	make all install
 
-all: libevent
+test_deps: curlcpp cxxtest
 
 .PHONY: all libevent cxxtest curlcpp
