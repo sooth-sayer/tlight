@@ -1,5 +1,9 @@
 build
 deps/install
+deps/curlcpp
+deps/cxxtest
+deps/libevent
+.*.swp
 .swp
 *.pyc
 *.py
