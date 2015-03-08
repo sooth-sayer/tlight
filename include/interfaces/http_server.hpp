@@ -1,6 +1,7 @@
 #ifndef HTTP_SERVER_INTERFACE
 #define HTTP_SERVER_INTERFACE
 
+#include <stdexcept>
 #include <string>
 
 using namespace std;
