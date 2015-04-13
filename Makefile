@@ -3,8 +3,8 @@ define WATCHARGS
 	"name": "tlight",
 	"expression": ["anyof", ["match", "*.cpp"], ["match", "*.hpp"]],
 	"command": ["make", "run"],
-	"stdout": ">build/.run_log",
-	"stderr": ">build/.run_log_err"
+	"stdout": ">>build/.run_log",
+	"stderr": ">>build/.run_log_err"
 }]
 endef
 export WATCHARGS
@@ -41,7 +41,7 @@ run: build/tlight
 
 watch:
 	@echo $$WATCHARGS | watchman -j
-	multitail -C build/.run_log build/.run_log_err
+	multitail --mark-interval 10 -C build/.run_log build/.run_log_err
 
 unwatch:
 	watchman trigger-del ./ tlight
