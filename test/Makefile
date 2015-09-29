@@ -2,7 +2,7 @@ LIBCURL_STATIC = ../deps/install/lib/libcurlcpp.a
 LIBEVENT_STATIC = ../deps/install/lib/libevent.a
 STATIC_LIBS = $(LIBCURL_STATIC) $(LIBEVENT_STATIC)
 
-SOURCES = ../src/http_server/libevent_http_request.cpp
+SOURCES = ../src/http_server/libevent_http_request.cpp ../src/http_server/libevent_http_server.cpp
 SUITES = $(wildcard $(addsuffix /*.hpp, src)) $(wildcard $(addsuffix /**/*.hpp, src)) $(wildcard $(addsuffix /*.hpp, lib)) $(wildcard $(addsuffix /**/*.hpp, lib))
 COMPILER = clang++
 SHFLAGS = -fdiagnostics-color=never

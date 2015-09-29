@@ -7,7 +7,11 @@
 
 using namespace std;
 
-class LibeventHttpServer : iHttpServer {
+class LibeventHttpServer : public iHttpServer {
+  void start(const string& address, int port);
+  void stop();
+
+  void register_route_handler(const string& route, void (*handler) (iHttpRequest& req));
 };
 
 #endif

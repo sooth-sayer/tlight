@@ -22,6 +22,8 @@ struct iHttpRequest {
 
   virtual void send_reply(int code, const string& status) = 0;
   virtual void send_error(int code, const string& error) = 0;
+
+  virtual ~iHttpRequest() { ; }
 };
 
 struct iHttpServer {

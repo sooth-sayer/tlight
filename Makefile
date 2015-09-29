@@ -28,9 +28,11 @@ COMPILER=clang++
 all: build/tlight
 
 build/tlight: $(OBJS)
+	@echo "----- Linking -----" >&2
 	$(COMPILER) $(LDFLAGS) $(OBJS) $(STATIC_LIBS) -o build/tlight
 
 build/%.o: src/%.cpp $(HEADERS)
+	@echo "----- Compiling $< -----" >&2
 	$(COMPILER) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -41,7 +43,7 @@ run: build/tlight
 
 watch:
 	@echo $$WATCHARGS | watchman -j
-	multitail --mark-interval 10 -C build/.run_log build/.run_log_err
+	multitail -C build/.run_log build/.run_log_err
 
 unwatch:
 	watchman trigger-del ./ tlight

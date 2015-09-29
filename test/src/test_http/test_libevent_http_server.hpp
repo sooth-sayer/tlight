@@ -15,15 +15,15 @@ class LibeventHttpServerTest : public CxxTest::TestSuite
 
   public:
     void setUp() {
-      /* server = std::unique_ptr<iHttpServer>(new LibeventHttpServer{}); */
-      /* server->start("127.0.0.1", 44444); */
+      server = std::unique_ptr<iHttpServer>(new LibeventHttpServer{});
+      server->start("127.0.0.1", 44444);
     }
 
     void tearDown() {
-      /* server->stop(); */
+      server->stop();
     }
 
     void testServerEchoResponse(void) {
-      HttpClient::get("http://google.com");
+      const string& res = HttpClient::get("127.0.0.1:44444");
     }
 };
